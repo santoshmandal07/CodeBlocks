@@ -39,6 +39,5 @@ int main()
             printf("Enter a valid choice!");
             break;
     }
-    getchar();
     return 0;
 }
