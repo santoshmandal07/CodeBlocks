@@ -2,10 +2,11 @@
 
 int main()
 {
-    int i;
-    for(i=1; i<=10; i++)
+    int i=1;
+    while(i<=10)
     {
         printf("%d. Welcome\n",i);
+        i++;
     }
     return 0;
 }

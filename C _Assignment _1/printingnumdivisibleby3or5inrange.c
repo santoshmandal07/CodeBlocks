@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main()
 {
     int start, end, i;
@@ -7,7 +6,6 @@ int main()
     scanf("%d", &start);
     printf("Enter the ending number: ");
     scanf("%d", &end);
-    
     printf("Numbers divisible by 3 or 5 between %d and %d are:\n", start, end);
     i = start;
     while(i <= end)

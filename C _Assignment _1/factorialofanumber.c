@@ -1,14 +1,11 @@
 #include <stdio.h>
-
 int main() 
 {
-    int n, i = 1;
+    int n, i;
     unsigned long long factorial = 1;  // Use long long to handle large results
-
     // Input number from user
     printf("Enter a positive integer: ");
     scanf("%d", &n);
-
     // Check if input is valid
     if (n < 0) 
     {
@@ -17,13 +14,13 @@ int main()
     else 
     {
         // Calculate factorial using do-while loop
-        do {
+        i=1;
+        while(i<=n)
+        {
             factorial *= i;
             i++;
-        } while (i <= n);
-
+        }
         printf("Factorial of %d = %llu\n", n, factorial);
     }
-
     return 0;
 }
