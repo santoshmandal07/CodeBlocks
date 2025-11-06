@@ -13,12 +13,14 @@ int inputMarks()
     printf("Enter the marks of the third subject: ");
     scanf("%d",&c);
     total = a + b + c;
+    return total;
 }
 
 int calculateAverage(float total)
 {
     float average;
     average = total / 3;
+    return average;
 }
 
 int displayResult(float average)
