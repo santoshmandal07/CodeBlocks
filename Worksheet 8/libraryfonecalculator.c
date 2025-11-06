@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Function declarations
 // Function to input the number of days the book was kept
 int inputDays()
 {

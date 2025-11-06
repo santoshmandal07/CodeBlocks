@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-// Function declarations
 // Function to deposit money
 float deposit(float balance, float amount)
 {
