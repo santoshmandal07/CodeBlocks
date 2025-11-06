@@ -1,53 +1,45 @@
 #include <stdio.h>
 
-int inputMarks()
+// Function to input marks
+void inputMarks(int *m1, int *m2, int *m3)
 {
-    float a;
-    float b;
-    float c;
-    float total;
-    printf("Enter the marks of the first subject: ");
-    scanf("%d",&a);
-    printf("Enter the marks of the second subject: ");
-    scanf("%d",&b);
-    printf("Enter the marks of the third subject: ");
-    scanf("%d",&c);
-    total = a + b + c;
-    return total;
+    printf("Enter marks of subject 1: ");
+    scanf("%d", m1);
+    printf("Enter marks of subject 2: ");
+    scanf("%d", m2);
+    printf("Enter marks of subject 3: ");
+    scanf("%d", m3);
 }
-
-int calculateAverage(float total)
+// Function to calculate average
+float calculateAverage(int m1, int m2, int m3)
 {
-    float average;
-    average = total / 3;
-    return average;
+    return (m1 + m2 + m3) / 3.0;
 }
-
-int displayResult(float average)
+// Function to display grade based on average
+void displayResult(float avg)
 {
-    if(average>=80)
-    {
-        printf("Grade A.");
-    }
-    else if(average>=60)
-    {
-        printf("Grade B.");
-    }
-    else if(average>=40)
-    {
-        printf("Grade C.");
-    }
+    printf("\nAverage = %.2f -", avg);
+
+    if (avg >= 80)
+        printf("Grade A\n");
+    else if (avg >= 60)
+        printf("Grade B\n");
+    else if (avg >= 40)
+        printf("Grade C\n");
     else
-    {
-        printf("Fail.");
-    }
+        printf("Fail\n");
 }
-
 int main()
 {
-    float totalmarks, average;
-    totalmarks = inputMarks();
-    average = calculateAverage(totalmarks);
-    displayResult(average);
+    int m1, m2, m3;
+    float avg;
+
+    printf("Enter marks of 3 subjects for Rahul:\n");
+    inputMarks(&m1, &m2, &m3);
+
+    avg = calculateAverage(m1, m2, m3);
+
+    displayResult(avg);
+
     return 0;
 }
