@@ -2,32 +2,44 @@
 
 int main()
 {
-    int n, i, j, k, space;
-    printf("Enter the size of the diamond: ");
-    scanf("%d",&n);
+    int n, i, j, space;
 
-    for(i=1; i<=n; i++)
+    printf("Enter the size of the diamond (odd number): ");
+    scanf("%d", &n);
+
+    // If even, make it odd
+    if(n % 2 == 0)
+        n++;
+
+    int mid = n / 2;
+
+    // Upper part
+    for(i = 0; i <= mid; i++)
     {
-        for (space = i; space < n; space++)
+        // Spaces
+        for(space = 0; space < mid - i; space++)
             printf(" ");
 
-        for(j=1; j<=i; j++)
-        {
-            printf("* ");
-        }
+        // Stars (only odd numbers)
+        for(j = 0; j < 2*i + 1; j++)
+            printf("*");
+
         printf("\n");
     }
 
-    for(i=n; i>=1; i--)
+    // Lower part
+    for(i = mid - 1; i >= 0; i--)
     {
-        for (space = i; space <=n; space++)
+        // Spaces
+        for(space = 0; space < mid - i; space++)
             printf(" ");
 
-        for(k=i-1; k>=1; k--)
-        {
-            printf("* ");
-        }
+        // Stars
+        for(j = 0; j < 2*i + 1; j++)
+            printf("*");
+
         printf("\n");
     }
+
     return 0;
 }

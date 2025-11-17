@@ -14,7 +14,7 @@ int main()
     switch(choice)
     {
         case 1:
-        fahrenheit = (temperature*5/9)+32;
+        fahrenheit = (temperature*9/5)+32;
         printf("Your temperature in Fahrenheit is: %.2f",fahrenheit);
         break;
 

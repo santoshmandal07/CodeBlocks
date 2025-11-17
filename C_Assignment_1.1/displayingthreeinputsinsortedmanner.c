@@ -9,19 +9,22 @@ int main()
     scanf("%d %d %d", &a, &b, &c);
 
     // Sort the numbers using simple comparisons
-    if (a > b) {
+    if (a > b) 
+    {
         temp = a;
         a = b;
         b = temp;
     }
 
-    if (a > c) {
+    if (a > c) 
+    {
         temp = a;
         a = c;
         c = temp;
     }
 
-    if (b > c) {
+    if (b > c) 
+    {
         temp = b;
         b = c;
         c = temp;
