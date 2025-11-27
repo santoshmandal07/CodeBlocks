@@ -47,11 +47,16 @@ void gradeDistribution(int n, int marks[n])
 
     for(int i = 0; i < n; i++)
     {
-        if(marks[i] >= 90) A++;
-        else if(marks[i] >= 75) B++;
-        else if(marks[i] >= 60) C++;
-        else if(marks[i] >= 40) D++;
-        else F++;
+        if(marks[i] >= 90) 
+        A++;
+        else if(marks[i] >= 75) 
+        B++;
+        else if(marks[i] >= 60) 
+        C++;
+        else if(marks[i] >= 40)
+        D++;
+        else 
+        F++;
     }
 
     printf("\nGrade Distribution:\n");
