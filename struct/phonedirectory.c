@@ -69,17 +69,21 @@ int main()
                 break;
 
             case 2:
-                printf("Enter full name to search: ");
+                printf("Enter full or partial name to search: ");
                 fgets(searchName, sizeof(searchName), stdin);
                 removeNewline(searchName);
 
                 int found = 0;
                 for(int i = 0; i < count; i++) {
-                    if(strcmp(contacts[i].name, searchName) == 0) {
-                        printf("Phone Number: %lld\n", contacts[i].phone);
+
+                    // ======== ONLY MODIFICATION DONE HERE =========
+                    if(strstr(contacts[i].name, searchName) != NULL) {
+                        printf("Full Name   : %s\n", contacts[i].name);
+                        printf("Phone Number: %lld\n\n", contacts[i].phone);
                         found = 1;
-                        break;
                     }
+                    // =================================================
+
                 }
 
                 if(!found) {
