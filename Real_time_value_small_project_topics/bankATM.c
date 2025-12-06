@@ -11,9 +11,6 @@
     Mail ID : santoshmandal8583@gmail.com
     Date : 06/12/2025
 */
-
-
-
 #include <stdio.h>
 
 // Function to deposit money
