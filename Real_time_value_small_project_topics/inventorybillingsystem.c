@@ -2,7 +2,7 @@
     This program is for billing purpose in grocery stores,
     I have taken 10 items in an array and fixed there price in different array,
     user will give the quantity of the items the buyer has purchased and this program will
-    give the grand total of the Buyer has purchased from the grocery store.
+    give the grand total of the items that has been purchased from the grocery store.
 
 
     Programer : SANTOSH MANDAL
