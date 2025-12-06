@@ -104,7 +104,7 @@ int main()
 
         case 3:
         minimum = lowest(n,marks);
-        printf("The lowest marks among %d students is: %d",n,minimum);
+        printf("The lowesr marks among %d students is: %d",n,minimum);
         break;
 
         case 4:
