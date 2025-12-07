@@ -1,120 +1,68 @@
 #include <stdio.h>
 
-int average(int n, int marks[n])
+// Function: calculate bill for one item
+float calculateItemTotal(float price, int qty)
 {
-    int average;
-    int sum=0;
-    int i;
-    for(i=0; i<n; i++)
-    {
-        sum += marks[i];
-    }
-    average = sum / n;
-    return average;
+    return price * qty;
 }
-
-int highest(int n, int marks[n])
-{
-    int i;
-    int max = marks[0];
-    for(i=0; i<n; i++)
-    {
-        if(marks[i] > max)
-        {
-            max = marks[i];
-        }
-    }
-    return max;
-}
-
-int lowest(int n, int marks[n])
-{
-    int i;
-    int min = marks[0];
-    for(i=0; i<n; i++)
-    {
-        if(marks[i] < min)
-        {
-            min = marks[i];
-        }
-    }
-    return min;
-}
-
-void gradeDistribution(int n, int marks[n])
-{
-    int A = 0, B = 0, C = 0, D = 0, F = 0;
-
-    for(int i = 0; i < n; i++)
-    {
-        if(marks[i] >= 90) 
-        A++;
-        else if(marks[i] >= 75) 
-        B++;
-        else if(marks[i] >= 60) 
-        C++;
-        else if(marks[i] >= 40)
-        D++;
-        else 
-        F++;
-    }
-
-    printf("\nGrade Distribution:\n");
-    printf("A (90+)   : %d\n", A);
-    printf("B (75-89) : %d\n", B);
-    printf("C (60-74) : %d\n", C);
-    printf("D (40-59) : %d\n", D);
-    printf("F (<40)   : %d\n", F);
-}
-
 
 int main()
 {
-    int n, i, choice, avg, maximum, minimum;
-    printf("Enter the numbers of students: \n");
-    scanf("%d",&n);
+    // 10 grocery items
+    char *items[10] = {
+        "Rice", "Sugar", "Milk", "Bread", "Eggs",
+        "Tea", "Coffee", "Oil", "Soap", "Salt"
+    };
 
-    int marks[n];
-    printf("Enter the Marks of the students: \n");
-    for(i=0; i<n; i++)
+    // Corresponding 10 prices
+    float prices[10] = {
+        40.0, 50.0, 25.0, 20.0, 6.0,
+        120.0, 180.0, 150.0, 30.0, 10.0
+    };
+
+    float *pPrice = prices;   // pointer to price array
+
+    int choice, qty;
+    float grandTotal = 0.0;
+
+    while (1)
     {
-        scanf("%d",&marks[i]);
+        // Display menu
+        printf("\n--------- GROCERY MENU (10 ITEMS) ---------\n");
+        for (int i = 0; i < 10; i++)
+        {
+            printf("%d. %s  - Rs %.2f\n", i + 1, items[i], *(pPrice + i));
+        }
+        printf("11. Checkout / Exit\n");
+        printf("-------------------------------------------\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        if (choice == 11)
+        {
+            printf("\nFinal Grand Total = Rs %.2f\n", grandTotal);
+            printf("Thank you for shopping!\n");
+            break;
+        }
+
+        if (choice < 1 || choice > 11)
+        {
+            printf("Invalid choice! Please try again.\n");
+            continue;
+        }
+
+        printf("Enter quantity: ");
+        scanf("%d", &qty);
+
+        // Calculate cost for selected item
+        float cost = calculateItemTotal(*(pPrice + (choice - 1)), qty);
+        grandTotal += cost;
+
+        printf("%s x %d = Rs %.2f added to bill.\n", items[choice - 1], qty, cost);
+
+        printf("Current Total: Rs %.2f\n", grandTotal);
     }
 
-
-    printf("What you want to do?\n");
-    printf("1. Finding average\n");
-    printf("2. Highest marks\n");
-    printf("3. Lowest marks\n");
-    printf("4. Grade distribution\n");
-    printf("Your choice: ");
-    scanf("%d",&choice);
-
-    switch(choice)
-    {
-        case 1:
-        avg = average(n,marks);
-        printf("The average of the marks of all students is %d",avg);
-        break;
-
-        case 2:
-        maximum = highest(n,marks);
-        printf("The highest marks among %d students is: %d",n,maximum);
-        break;
-
-        case 3:
-        minimum = lowest(n,marks);
-        printf("The lowesr marks among %d students is: %d",n,minimum);
-        break;
-
-        case 4:
-        gradeDistribution(n,marks);
-        break;
-
-        default:
-        printf("Enter a valid choice!");
-
-    }
-    
     return 0;
 }

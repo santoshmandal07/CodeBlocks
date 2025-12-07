@@ -19,7 +19,7 @@ int div(float x, float y)
     printf("Division of %.2f and %.2f is %.2f.",x,y,x/y);
 }
 
-int palindrome(int n)
+int reverseNum(int n)
 {
     int original, rem, reverse=0;
     while(n>0)
