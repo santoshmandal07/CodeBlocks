@@ -1,36 +1,80 @@
 #include <stdio.h>
 
-int reverseNum(int n)
-{
-    int original, rem, reverse=0;
-    while(n>0)
-    {
-        rem = n % 10;
-        reverse = reverse * 10 + rem;
-        n = n / 10;
-    }
-
-    return reverse;
-}
-
 int main()
 {
-    int num, reverse;
-
-    printf("Enter the number to check it is palindrome or not: ");
-    scanf("%d",&num);
-
-    reverse = reverseNum(num);
-
-    if(num == reverse)
+    int num, i;
+    int countA=0, countB=0, countC=0, countD=0, countF=0;
+    printf("Enter the marks of the students and enter \"-1\" to stop: ");
+    while(1)
     {
-        printf("The number is palindrome.");
+        scanf("%d",&num);
+        {
+            if(num == -1)
+            {
+                printf("A:\n");
+                for(i=1; i<=countA; i++)
+                {
+                    printf("*");
+                }
+                printf("\n");
 
-    }
+                printf("B:\n");
+                for(i=1; i<=countB; i++)
+                {
+                    printf("*");
+                }
+                printf("\n");
 
-    else
-    {
-        printf("The number is not a palindrome.");
+                printf("C:\n");
+                for(i=1; i<=countC; i++)
+                {
+                    printf("*");
+                }
+                printf("\n");
+
+                printf("D:\n");
+                for(i=1; i<=countD; i++)
+                {
+                    printf("*");
+                }
+                printf("\n");
+
+                printf("F:\n");
+                for(i=1; i<=countF; i++)
+                {
+                    printf("*");
+                }
+                printf("\n");
+
+                return 0;
+            }
+
+        }
+        switch (num / 10) 
+        {
+            case 10:  // for 100  
+            case 9:   // 90–99
+            case 8:   // 80–89
+                countA++;
+                break;
+
+            case 7:   // 70–79
+            case 6:   // 60–69
+                countB++;
+                break;
+
+            case 5:   // 50–59
+                countC++;
+                break;
+
+            case 4:   // 40–49
+                countD++;
+                break;
+
+            default:  // 0–39
+                countF++;
+                break;
+        }
     }
     return 0;
 }

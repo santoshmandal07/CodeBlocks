@@ -7,6 +7,12 @@ int main()
     printf("Enter a positive integer: ");
     scanf("%d", &num);
 
+    if(num<0)
+    {
+        printf("Please enter a positive number!");
+        return 0;
+    }
+
     printf("Prime factors of %d are: ", num);
 
     // Step 1: Factor out 2
