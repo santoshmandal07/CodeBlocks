@@ -27,6 +27,17 @@ int main()
         }
     }
 
+    printf("Normal Matrix: \n");
+    for ( i = 0; i < c; i++)
+    {
+        for ( j = 0; j < r; j++)
+        {
+            printf("%d ",A[i][j]);
+        }
+        printf("\n");
+        
+    }
+    
     printf("Transpose of the matrix:\n");
     for(i = 0; i < c; i++)
     {

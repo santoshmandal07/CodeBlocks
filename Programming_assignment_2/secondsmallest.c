@@ -1,38 +1,45 @@
 #include <stdio.h>
+#include <limits.h>
 
 int main()
 {
     int n, i;
-    int smallest, secondSmallest;
+    int smallest = INT_MAX, secondSmallest = INT_MAX;
 
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
+    if (n < 2)
+    {
+        printf("Second smallest element not possible.\n");
+        return 0;
+    }
+
     int arr[n];
 
     printf("Enter %d elements:\n", n);
-    for(i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
     {
         scanf("%d", &arr[i]);
     }
 
-    // Initialize smallest and second smallest
-    smallest = secondSmallest = arr[0];
-
-    for(i = 1; i < n; i++)
+    for (i = 0; i < n; i++)
     {
-        if(arr[i] < smallest)
+        if (arr[i] < smallest)
         {
             secondSmallest = smallest;
             smallest = arr[i];
         }
-        else if(arr[i] < secondSmallest && arr[i] != smallest)
+        else if (arr[i] > smallest && arr[i] < secondSmallest)
         {
             secondSmallest = arr[i];
         }
     }
 
-    printf("Second smallest element = %d", secondSmallest);
+    if (secondSmallest == INT_MAX)
+        printf("No second smallest element.\n");
+    else
+        printf("Second smallest element = %d\n", secondSmallest);
 
     return 0;
 }
