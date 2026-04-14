@@ -8,6 +8,24 @@ struct node{
 
 typedef struct node Node;
 
+Node* createnode(int data){
+    Node *n = (Node*)malloc(sizeof(Node));
+    printf("Please enter the data for the node: ");
+    scanf("%d", &n->data);
+    n->next = NULL;
+    return n;
+}
+
+void printlist(Node *head){
+    Node *current = head;
+    printf("The data in the nodes are: ");
+    while(current != NULL){
+        printf("%d-->", current->data);
+        current = current->next;
+    }
+    printf("NULL\n");
+}
+
 Node* insertatbeginning(Node *head, int data){
     Node *n = (Node*)malloc(sizeof(Node));
     n->data = data;
@@ -52,23 +70,6 @@ Node* insertatanypoint(Node *head, int data, int position){
     return head; // Return the unchanged head pointer
 }
 
-Node* createnode(int data){
-    Node *n = (Node*)malloc(sizeof(Node));
-    printf("Please enter the data for the node: ");
-    scanf("%d", &n->data);
-    n->next = NULL;
-    return n;
-}
-
-void printlist(Node *head){
-    Node *current = head;
-    printf("The data in the nodes are: ");
-    while(current != NULL){
-        printf("%d-->", current->data);
-        current = current->next;
-    }
-    printf("NULL\n");
-}
 
 int main(){
     Node *n1, *n2, *n3, *n4, *head;
