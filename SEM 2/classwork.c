@@ -54,6 +54,29 @@ void insertarray(int a[]){
     }
 }
 
+void updatearray(int a[]){
+    int index, val;
+    
+    printf("Please enter the index to update (0-%d): ", N-1);
+    scanf("%d", &index);
+    
+    if(index < 0 || index >= N){
+        printf("Invalid index! Index should be between 0 and %d.\n", N-1);
+        return;
+    }
+    
+    if(a[index] == -1){
+        printf("Position is empty! Can't update.\n");
+        return;
+    }
+    
+    printf("Please enter the new value: ");
+    scanf("%d", &val);
+    
+    a[index] = val;
+    printf("Element updated successfully.\n");
+}
+
 int main(){
 
     int a[N]={-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
@@ -62,14 +85,13 @@ int main(){
     //inputarray(a);
     printarray(a);
 
-
-
     insertarray(a);
     insertarray(a);
     insertarray(a);
     printarray(a);
-
-
+    
+    updatearray(a);
+    printarray(a);
 
 return 0;
 }
