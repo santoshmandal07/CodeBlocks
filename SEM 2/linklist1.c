@@ -93,6 +93,15 @@ int main(){
     scanf("%d", &newdata);
     head = insertatend(head, newdata); // Update head after insertion
     printlist(head);
+
+    int position;
+    printf("Enter the data to be inserted at any point: ");     
+    scanf("%d", &newdata);
+    printf("Enter the position to insert the new node: ");
+    scanf("%d", &position);
+    head = insertatanypoint(head, newdata, position); // Update head after insertion
+    printlist(head);
+
     return 0;
 
 }
