@@ -52,22 +52,32 @@ Node* insertatanypoint(Node *head, int data, int position){
     Node *n = (Node*)malloc(sizeof(Node));
     n->data = data;
     n->next = NULL;
-    if(position == 0){
-        n->next = head; // Insert at the beginning
-        return n; // New node becomes the new head
+
+    // Insert at beginning
+    if(position == 1){
+        n->next = head;
+        return n;
     }
+
     Node *current = head;
-    for(int i = 0; i < position - 1 && current != NULL; i++){
-        current = current->next; // Traverse to the node before the desired position
+
+    // Move to (position - 1) node
+    for(int i = 1; i < position - 1 && current != NULL; i++){
+        current = current->next;
     }
+
+    // Check invalid position
     if(current == NULL){
         printf("Position out of bounds\n");
-        free(n); // Free the allocated node if position is invalid
-        return head; // Return the unchanged head pointer
+        free(n);
+        return head;
     }
-    n->next = current->next; // Link the new node to the next node
-    current->next = n; // Link the previous node to the new node
-    return head; // Return the unchanged head pointer
+
+    // Insert node
+    n->next = current->next;
+    current->next = n;
+
+    return head;
 }
 
 
