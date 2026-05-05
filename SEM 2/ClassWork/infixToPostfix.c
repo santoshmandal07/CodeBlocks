@@ -41,8 +41,8 @@ int main() {
             // Pop operators with higher or equal precedence
             while (top >= 0 && stack[top] != '(') {
                 char op = stack[top];
-                int prec_c = (c == '+' || c == '-') ? 1 : (c == '*' || c == '/') ? 2 : 3;
-                int prec_op = (op == '+' || op == '-') ? 1 : (op == '*' || op == '/') ? 2 : 3;
+                int prec_c = (c == '+' || c == '-') ? 1 : (c == '*' || c == '/') ? 2 : 3; //for current operator
+                int prec_op = (op == '+' || op == '-') ? 1 : (op == '*' || op == '/') ? 2 : 3; //for operator on stack
                 
                 if (prec_op >= prec_c) {
                     postfix[j++] = stack[top--];
